@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from './actions'; // Імпортуємо ADD_TODO та TOGGLE_TODO з './actions'
+import { ADD_TODO, TOGGLE_TODO } from './actions';
 
 const initialState = {
     todos: [],
@@ -25,4 +25,4 @@ const todoReducer = (state = initialState, action) => {
     }
 };
 
-export default todoReducer; // Повертаємо todoReducer без виклику
+export default todoReducer;

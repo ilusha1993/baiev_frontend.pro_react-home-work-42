@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux'; // Імпортуємо connect з react-redux
-import { addTodo, toggleTodo } from '../store/actions'; // Імпортуємо actions зі store/actions
+import { connect } from 'react-redux';
+import { addTodo, toggleTodo } from '../store/actions';
 import styles from './todoList.modules.css';
 
 function TodoList({ todos, addTodo, toggleTodo }) {
@@ -56,4 +56,4 @@ const mapDispatchToProps = {
     toggleTodo,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList); // Підключаємо TodoList до Redux store
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
