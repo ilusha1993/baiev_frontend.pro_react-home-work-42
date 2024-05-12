@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from '../store/actions';
+import { addTodo, toggleTodo } from '../store/reducer';
 import styles from './todoList.modules.css';
 
 function TodoList({ todos, addTodo, toggleTodo }) {
@@ -12,7 +12,7 @@ function TodoList({ todos, addTodo, toggleTodo }) {
 
     const handleAddTodo = () => {
         if (inputValue.trim() !== '') {
-            addTodo(inputValue);
+            addTodo({ text: inputValue, completed: false });
             setInputValue('');
         }
     };
@@ -36,7 +36,7 @@ function TodoList({ todos, addTodo, toggleTodo }) {
                         <div
                             key={index}
                             className={`todo-item ${todo.completed ? 'completed' : ''}`}
-                            onClick={() => toggleTodo(index)}
+                            onClick={() => toggleTodo({ index })}
                         >
                             {todo.text}
                         </div>
@@ -48,7 +48,7 @@ function TodoList({ todos, addTodo, toggleTodo }) {
 }
 
 const mapStateToProps = (state) => ({
-    todos: state.todos,
+    todos: state.todos.todos,
 });
 
 const mapDispatchToProps = {
@@ -57,3 +57,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+
